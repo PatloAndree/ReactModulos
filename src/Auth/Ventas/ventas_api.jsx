@@ -12,9 +12,11 @@ import axios from "axios";
     }
   };
 
-  const listarVentasTipo = async (tipoVenta) => {
+  const listarVentasTipo = async (tipoVenta,fechaInicioFormateada,fechaFinFormateada) => {
+    // console.log(fechaInicioFormateada,fechaFinFormateada);
     try {
-      const response = await axios.post(`${API}ventas/listarTipo `,{ tipoVenta });
+      const response = await axios.post(`${API}ventas/listarTipo `,{ tipoVenta, fechaInicioFormateada, fechaFinFormateada });
+      console.log("consultandooo" , response);
       return { success: true, data: response.data };
     } catch (error) {
       console.error("Error al obtener usuarios:", error);

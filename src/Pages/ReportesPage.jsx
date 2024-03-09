@@ -1,6 +1,6 @@
 import React , {useState,useEffect,useCallback} from 'react';
-import Ventas from '../Home/Ventas/Ventas';
-import SelectOptions from '../Home/Ventas/SelectOptions';
+import Ventas from '../Components/Ventas/Ventas';
+import SelectOptions from '../Components/Ventas/SelectOptions';
 import { listarVentas } from '../Auth/Ventas/ventas_api';
 
 const ReportesPage = () => {
