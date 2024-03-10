@@ -96,7 +96,7 @@ import Listado from "./Home/Listado";
 import Navigation from "./TopBar/TopBar";
 import WithSidebar from "./SideBar/withSideBar";
 import Noticias from "./Home/Noticias";
-
+import "./Styles.css";
 // Componente de protección de ruta
 const ProtectedRoute = ({ element, isAuthenticated }) => {
   return isAuthenticated ? element : <Navigate to="/" />;

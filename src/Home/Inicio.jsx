@@ -68,38 +68,38 @@ function Inicio() {
     }
   };
 
-  const editarData = (id, nombreE, apellidosE, dniE, telefonoE) => {
-    if (nombreE != "") {
-      setNombre(nombreE);
-      setApellidos(apellidosE);
-      setDni(dniE);
-      setTelefono(telefonoE);
-      setIdUsuario(id);
-      setEditarOpcion(true);
-    }
-  };
+    const editarData = (id, nombreE, apellidosE, dniE, telefonoE) => {
+      if (nombreE != "") {
+        setNombre(nombreE);
+        setApellidos(apellidosE);
+        setDni(dniE);
+        setTelefono(telefonoE);
+        setIdUsuario(id);
+        setEditarOpcion(true);
+      }
+    };
 
-  const editarEmpleado = async (event) => {
-    event.preventDefault();
-    try {
-      const usuarioActualizado = {
-        id: idUsuario,
-        nombres: nombre,
-        apellidos: apellidos,
-        dni: dni,
-        telefono: telefono,
-      };
-      const data = await editarUsuario(usuarioActualizado);
-      console.log("Usuario editado correctamente");
-      console.log(data);
-      fetchData();
-      limpiarData();
-      // Aquí puedes manejar la respuesta del servidor, como mostrar un mensaje de éxito
-    } catch (error) {
-      console.error("Error al editar usuario:", error);
-      // Aquí puedes manejar el error, como mostrar un mensaje de error al usuario
-    }
-  };
+    const editarEmpleado = async (event) => {
+      event.preventDefault();
+      try {
+        const usuarioActualizado = {
+          id: idUsuario,
+          nombres: nombre,
+          apellidos: apellidos,
+          dni: dni,
+          telefono: telefono,
+        };
+        const data = await editarUsuario(usuarioActualizado);
+        console.log("Usuario editado correctamente");
+        console.log(data);
+        fetchData();
+        limpiarData();
+        // Aquí puedes manejar la respuesta del servidor, como mostrar un mensaje de éxito
+      } catch (error) {
+        console.error("Error al editar usuario:", error);
+        // Aquí puedes manejar el error, como mostrar un mensaje de error al usuario
+      }
+    };
 
   const eliminarUsuario = async (id) => {
     try {

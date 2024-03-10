@@ -1,0 +1,10 @@
+.pickers {
+    background-color: #F0F0F0;
+    
+  }
+
+  @media (max-width: 600px) {
+    .table {
+      width: 320px;
+    }
+  }

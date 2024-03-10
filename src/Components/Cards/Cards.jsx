@@ -2,10 +2,10 @@ import React from "react";
 
 const Cards = () => {
   return (
-    <div>
-      <div className="col-12">
+      // <div className="col-12">
+
         <div className="row">
-          <div className="col-md-4 col-xl-3 ">
+          <div className="col-12 col-md-6 col-xl-3 mt-2 ">
             <div
               className="card order-card p-3"
               style={{
@@ -25,7 +25,7 @@ const Cards = () => {
             </div>
           </div>
 
-          <div className="col-md-4 col-xl-3">
+          <div className="col-12 col-md-6  col-xl-3 mt-2">
             <div
               className="card order-card p-3"
               style={{
@@ -46,7 +46,7 @@ const Cards = () => {
             </div>
           </div>
 
-          <div className="col-md-4 col-xl-3">
+          <div className="col-12 col-md-6 col-xl-3 mt-2">
             <div
               className="card order-card p-3"
               style={{
@@ -68,7 +68,7 @@ const Cards = () => {
             </div>
           </div>
 
-          <div className="col-md-4 col-xl-3">
+          <div className="col-12 col-md-6  col-xl-3 mt-2">
             <div
               className="card order-card p-3"
               style={{
@@ -91,8 +91,7 @@ const Cards = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      // </div>
   );
 };
 

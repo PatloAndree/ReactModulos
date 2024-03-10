@@ -23,7 +23,7 @@ function Login({ onLogin }) {
   };
 
   return (
-    <section className="vh-50 pt-5" >
+    <section className="vh-50 pt-2" >
     {/* <section className="" style={{ backgroundColor: "#" }}> */}
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-75">
@@ -97,12 +97,7 @@ function Login({ onLogin }) {
                           Registrate aquí
                         </a>
                       </p>
-                      <a href="#!" className="small text-muted">
-                        {/* Terminos de use. */}
-                      </a>
-                      <a href="#!" className="small text-muted">
-                        Privacy policy
-                      </a>
+                    
                     </form>
                   </div>
                 </div>

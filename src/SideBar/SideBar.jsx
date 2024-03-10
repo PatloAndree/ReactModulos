@@ -37,7 +37,7 @@ const Sidebar = () => {
           <div className="me-3 mt-3">
             <p className="fw-bold text-primary">
 
-            Usuario : {usuarioSesion.name}
+            {usuarioSesion.name}
             </p>
             
             </div>
