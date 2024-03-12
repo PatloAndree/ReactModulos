@@ -3,16 +3,16 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import validarLogin from "../Auth/login_api";
 
-function Login({ onLogin }) {
+function Login({ onLogin }  ) {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [contrasena, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const [usuarios, setUsuarios] = useState([]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const result = await validarLogin(email, password);
+    const result = await validarLogin(email, contrasena);
     if (result.success) {
       onLogin();
       navigate("/Escritorio");
@@ -71,7 +71,7 @@ function Login({ onLogin }) {
                           type="password"
                           id="form2Example27"
                           className="form-control form-control-lg"
-                          value={password}
+                          value={contrasena}
                           onChange={(e) => setPassword(e.target.value)}
                           required
                         />

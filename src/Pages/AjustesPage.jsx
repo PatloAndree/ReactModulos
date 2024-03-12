@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import Listado from "../Home/Listado";
 import BasicTable from "../Components/Usuarios/TablaUsuarios";
-import FormVentas from "../Components/Ventas/FormVentas";
-import TableVentas from "../Components/Ventas/TableVentas";
 
-const ListadoPage = () => {
+const AjustesPage = () => {
 
-  const [selectedVenta, setSelectedVenta] = useState(null);
+  const [selectedUsuario, setSelectedUsuario] = useState(null);
   const [valorRespuesta, setValorRespuesta] = useState(false);
 
   const [eliminaelUsuario, setEliminarUsuario] = useState(null);
 
-  const handleRowClick = (venta) => {
-    setSelectedVenta(venta);
+  const handleRowClick = (usuario) => {
+    setSelectedUsuario(usuario);
   };
 
   const llamarUsuarios = (valorRespuesta) => {
@@ -24,19 +22,19 @@ const ListadoPage = () => {
   };
 
   return (
-    <div className="row w-100 p-3 ">
+    <div className="row p-3 ">
       <p style={{ fontWeight: "bolder" }}>Listado general</p>
 
-      <div className="col-12 col-md-12 col-xl-4 h-50 border rounded p-4 mt-5">
-        <FormVentas
-          venta={selectedVenta}
+      <div className="col-12 col-md-12 col-xl-4 border rounded p-3 mt-5">
+        <Listado
+          usuario={selectedUsuario}
           setValorRespuesta={setValorRespuesta}
           objetoEliminar={eliminaelUsuario}
         />
       </div>
 
       <div className=' className="col-12 col-md-12 col-xl-8 p-4 mt-4 "'>
-        <TableVentas
+        <BasicTable
           onRowClick={handleRowClick}
           llamarUsuarios={valorRespuesta}
           setValorRespuesta={setValorRespuesta}
@@ -47,4 +45,4 @@ const ListadoPage = () => {
   );
 };
 
-export default ListadoPage;
+export default AjustesPage;

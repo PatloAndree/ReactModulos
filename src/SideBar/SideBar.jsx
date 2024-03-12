@@ -87,7 +87,7 @@ const Sidebar = () => {
                 <span className="nav_name">Gráficos</span>{" "}
               </Link>
 
-              <Link to={"/Graficos"} className="nav_link">
+              <Link to={"/Ajustes"} className="nav_link">
                 <i className="bx bx-cog nav_logo-icon"></i>
                 <span className="nav_name">Ajustes</span>{" "}
               </Link>

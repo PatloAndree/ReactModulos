@@ -23,8 +23,53 @@ import axios from "axios";
       return { success: false, error: "Usuario o contraseña inválidos" };
     }
   };
+  
+const grabarVenta = async (venta) => {
+
+  await axios({
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    // url: "http://192.168.18.30/Backend/controllers/usuarioController.php",
+    // url: "http://localhost/newVersion/public/agregarUsuario",
+    url: "http://127.0.0.1:8000/api/ventas/agregarVenta",
+
+    data: venta,
+  })
+    .then(async function (d) {
+      console.log("Registro aceptado");
+
+    })
+    .catch(function (error) {
+      console.log("Registro rechazadao");
+
+    });
+
+};
+
+const editarVenta = async (venta) => {
+  
+  await axios({
+    method: "put",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    // url: `http://192.168.18.30/Backend/controllers/usuarioController.php?id=${idUsuario}}`,
+    // url: `http://localhost/newVersion/public/editarUsuario`,
+    url: `http://127.0.0.1:8000/api/ventas/editarVenta`,
+    data: venta,
+  })
+    .then(async function (d) {
+      console.log("Registro aceptado");
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
 
 
 // export default VentasApi;
 
-export { listarVentas , listarVentasTipo };
+export { listarVentas , listarVentasTipo, grabarVenta, editarVenta };

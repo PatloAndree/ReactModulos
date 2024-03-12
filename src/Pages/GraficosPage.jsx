@@ -9,6 +9,7 @@ const GraficosPage = () => {
 
     return (
         <div className='row w-100 p-3'>
+
             <p style={{fontWeight:'bolder'}}>Gráficos generales</p>
 
             <SelectOptions setVentasFiltradas={setVentasFiltradas} />

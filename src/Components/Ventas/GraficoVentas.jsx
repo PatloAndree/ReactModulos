@@ -106,7 +106,7 @@ const BarChartExample = ({ ventasFiltradas }) => {
 
   return (
     <div className="d-flex row ">
-      <div className="col-12 col-md-6 d-flex justify-content-center align-items-center" style={{ width:600 , height: 400 }}>
+      <div className="col-12 col-md-6 col-xl-6  d-flex justify-content-center align-items-center" >
         <ResponsiveContainer>
 
         <BarChart
@@ -150,7 +150,7 @@ const BarChartExample = ({ ventasFiltradas }) => {
         </PieChart>
       </div> */}
 
-      <div className="col-12 col-md-6 d-flex justify-content-center align-items-center" style={{  height: 400 }}>
+      <div className="col-12 col-md-6 col-xl-6 d-flex justify-content-center align-items-center" style={{  height: 400 }}>
         <ResponsiveContainer>
         <LineChart width={800} height={400} data={ventasFiltradas}>
           <CartesianGrid strokeDasharray="3 3" />

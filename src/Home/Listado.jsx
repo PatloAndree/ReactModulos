@@ -8,18 +8,17 @@ import grabarUsuario from "../Auth/grabarEmpleado_api";
 import editarUsuario from "../Auth/updateEmpleado_api";
 import BasicTable from "../Components/Usuarios/TablaUsuarios";
 
-function Listado({usuario, setValorRespuesta}) {
+function Listado({usuario, setValorRespuesta, objetoEliminar}) {
 
   const [idUsuario, setIdUsuario] = useState(0);
   const [nombre, setNombre] = useState("");
   const [apellidos, setApellidos] = useState("");
   const [dni, setDni] = useState("");
   const [telefono, setTelefono] = useState("");
-
+  const [correo, setCorreo] = useState("");
+  const [contrasena, setContrasena] = useState("");
   const [editarOpcion, setEditarOpcion] = useState(false);
-
   const [loading, setLoading] = useState(false);
-
   const [usuarios, setUsuarios] = useState([]);
 
   function limpiarData() {
@@ -28,6 +27,9 @@ function Listado({usuario, setValorRespuesta}) {
     setDni("");
     setTelefono("");
     setIdUsuario("");
+    setCorreo("");
+    setEditarOpcion(false);
+
   }
 
   const [selectedUsuario, setSelectedUsuario] = useState(null);
@@ -51,13 +53,20 @@ function Listado({usuario, setValorRespuesta}) {
     console.log("soy vacio");
       console.log(usuario);
       setNombre(usuario.name);
-      setApellidos(usuario.email);
+      setApellidos(usuario.apellidos);
       setDni(usuario.dni);
       setTelefono(usuario.telefono);
+      setCorreo(usuario.email);
       setIdUsuario(usuario.id);
       setEditarOpcion(true);
     }
-  }, [usuario]);
+
+    if (objetoEliminar != "" && objetoEliminar != null) {
+      console.log(objetoEliminar.id);
+        const idUsuario = objetoEliminar.id;
+        eliminarUsuario(idUsuario);
+    }
+  }, [usuario, objetoEliminar]);
 
 
   const grabarNuevoUsuario = async (event) => {
@@ -67,20 +76,22 @@ function Listado({usuario, setValorRespuesta}) {
         const nuevoUsuario = {
           nombres: nombre,
           apellidos: apellidos,
+          correo:correo,
           dni: dni,
           telefono: telefono,
+          contrasena:contrasena
         };
         const data = await grabarUsuario(nuevoUsuario);
         console.log("Registro aceptado");
+        setValorRespuesta(true);
+        limpiarData();
         fetchData();
         console.log(data);
-        // Aquí puedes manejar la respuesta del servidor, como mostrar un mensaje de éxito
       } else {
         alert("Completa los campos");
       }
     } catch (error) {
       console.error("Error al grabar usuario:", error);
-      // Aquí puedes manejar el error, como mostrar un mensaje de error al usuario
     }
   };
 
@@ -91,8 +102,10 @@ function Listado({usuario, setValorRespuesta}) {
         id: idUsuario,
         nombres: nombre,
         apellidos: apellidos,
+        correo:correo,
         dni: dni,
         telefono: telefono,
+        contrasena:contrasena
       };
       const data = await editarUsuario(usuarioActualizado);
       console.log("Usuario editado correctamente");
@@ -116,7 +129,8 @@ function Listado({usuario, setValorRespuesta}) {
         `http://127.0.0.1:8000/api/usuarios/eliminarUsuario/${id}`
       );
       console.log(response.data.message);
-      listarUsuarios();
+      setValorRespuesta(true);
+      limpiarData();
 
       // Manejar la respuesta si es necesario
     } catch (error) {
@@ -128,11 +142,14 @@ function Listado({usuario, setValorRespuesta}) {
   return (
     <div className=" row ">
 
-      <div className="">
-        <p>
-          Agregar empleados <i className="bx bx-user text-primary"></i>
-        </p>
-        <div className="m-2">
+      {/* <div className="">   */}
+      <div className="d-flex justify-content-between">
+
+        <p>Agregar empleados <i className="bx bx-user text-primary"></i></p>
+
+        <i className="bx bx-revision text-primary" onClick={limpiarData}></i>
+      </div>
+        <div className="">
           <form>
             <div className="row">
               <div className="col-12 col-md-6 mb-3">
@@ -194,42 +211,50 @@ function Listado({usuario, setValorRespuesta}) {
                   onChange={(e) => setTelefono(e.target.value)}
                 />
               </div>
-              <div className="col-12 col-md-6 mb-3">
+              <div className="col-12 col-md-12 mb-3">
                 <label for="exampleInputPassword1" className="form-label">
-                  Telefono
+                  Correo
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   id="exampleInputPassword1"
-                  value={telefono}
-                  onChange={(e) => setTelefono(e.target.value)}
+                  value={correo}
+                  onChange={(e) => setCorreo(e.target.value)}
                 />
               </div>
-              <div className="col-12 col-md-6 mb-3">
+              <div className="col-12 col-md-12 mb-3">
                 <label for="exampleInputPassword1" className="form-label">
-                  Telefono
+                  {
+                    editarOpcion == false ? "Crear Contraseña" : "Cambiar contraseña"
+                  }
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   id="exampleInputPassword1"
-                  value={telefono}
-                  onChange={(e) => setTelefono(e.target.value)}
+                  value={contrasena}
+                  onChange={(e) => setContrasena(e.target.value)}
                 />
               </div>
-
-              <div className="col-12 mb-3">
+              {
+                editarOpcion == false 
+                ?
+                ""
+                :
+              <div className="col-12 mb-3 ">
                 <label for="exampleInputPassword1" className="form-label">
-                  Cargo
+                  Estado usuario
                 </label>
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Selecciona</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value="1">Activo</option>
+                  <option value="2">Inactivo</option>
+                  {/* <option value="3">Three</option> */}
                 </select>
               </div>
+
+              }
             </div>
             {editarOpcion == false ? (
               <button className="btn btn-primary" onClick={grabarNuevoUsuario}>
@@ -242,13 +267,8 @@ function Listado({usuario, setValorRespuesta}) {
             )}
           </form>
         </div>
-      </div>
+      {/* </div>   */}
 
-      <div className="col-12 col-md-12 col-xl-8 p-3 mt-5 ">
-        {/* <h5>Lista de usuarios</h5>
-            <BasicTable/> */}
-
-      </div>
     </div>
   );
 }

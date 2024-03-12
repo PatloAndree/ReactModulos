@@ -121,10 +121,6 @@ function Inicio() {
     <div className="d-flex flex-column w-100  ">
       {/* <div className="d-flex  w-100 mt-5 mb-5"> */}
       <div className="row h-100 mt-5 justify-content-around align-items-center">
-        {/* <div className="col-6">
-              <p>Imagen del usuario</p>
-              <img src={imagenAvatar} className="w-25"></img>
-            </div> */}
 
         <div
           className="col-12 col-md-4 col-sm-4 border rounded p-4"

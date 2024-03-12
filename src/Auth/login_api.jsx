@@ -2,13 +2,13 @@
 
 import axios from 'axios';
 
-const validarLogin = async (email, password) => {
+const validarLogin = async (email, contrasena) => {
   try {
     const response = await axios.post(
       "http://127.0.0.1:8000/api/validarLogin",
       {
         email: email,
-        password: password,
+        password: contrasena,
       }
     );
     
