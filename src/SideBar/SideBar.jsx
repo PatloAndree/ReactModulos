@@ -61,7 +61,6 @@ const Sidebar = () => {
             <div className="nav_list">
               <Link
                 to={"/Escritorio"}
-                // className="text-dark text-decoration-none btn"
                 className="nav_link mt-5"
               >
                 <i className="bx bx-layer nav_logo-icon"></i>
@@ -70,11 +69,17 @@ const Sidebar = () => {
 
               <Link
                 to={"/Listado"}
-                // className="text-dark text-decoration-none btn"
                 className="nav_link"
               >
                 <i className="bx bx-user nav_logo-icon"></i>
                 <span className="nav_name">Listado</span>{" "}
+              </Link>
+              <Link
+                to={"/Productos"}
+                className="nav_link"
+              >
+                <i className="bx bx-package nav_logo-icon"></i>
+                <span className="nav_name">Productos</span>{" "}
               </Link>
 
               <Link to={"/Reportes"} className="nav_link">

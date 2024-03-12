@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import TablePagination from "@mui/material/TablePagination";
 import { TableSortLabel } from "@mui/material";
 
-export default function TablaGeneral({ headers, data , verBuscador}) {
+export default function TablaGeneral({ headers, data, verBuscador }) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [orderBy, setOrderBy] = useState("");
@@ -34,88 +34,98 @@ export default function TablaGeneral({ headers, data , verBuscador}) {
     setOrderBy(property);
   };
 
+  const nivelesVenta = {
+    1: "Alto",
+    2: "Medio",
+    3: "Bajo",
+  };
+
   return (
-
-    
     <div className="table">
-        {
-            verBuscador == true
-            ?
-            <input
-              label="Buscar"
-              className="form-control"
-              placeholder="Búsqueda en la tabla"
-              variant="outlined"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              style={{ marginBottom: 10 }}
-            />
-            :
-            ""
-        }
-        {
-            data != ""
-
-            ?   
-
-                <TableContainer component={Paper} >
-                    <Table size="large" aria-label="simple table" >
-                    <TableHead className="bg-general">
-                        <TableRow className="text-center text-white bg-general">
-                        {headers.map((header) => (
-                            <TableCell key={header.key} className="text-white">
-                            {header.label}
-                            <TableSortLabel
-                                active={orderBy === header.key}
-                                direction={orderBy === header.key ? order : "asc"}
-                                onClick={() => handleSort(header.key)}
-                            />
-                            </TableCell>
-                        ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {data
-                        .filter((item) => {
-                            const searchTermLowerCase = searchTerm.toLowerCase();
-                            return headers.some((header) => {
-                            const value = item[header.key] || "";
-                            return value.toString().toLowerCase().includes(searchTermLowerCase);
-                            });
-                        })
-                        .sort((a, b) => {
-                            if (order === "asc") {
-                            return a[orderBy] < b[orderBy] ? -1 : 1;
-                            } else {
-                            return a[orderBy] > b[orderBy] ? -1 : 1;
-                            }
-                        })
-                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((row) => (
-                            <TableRow key={row.id}>
-                            {headers.map((header) => (
-                                <TableCell key={header.key}>{row[header.key]}</TableCell>
-                            ))}
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                    </Table>
-                    <TablePagination
-                    rowsPerPageOptions={[10, 15, 25]}
-                    component="div"
-                    count={data.length}
-                    rowsPerPage={rowsPerPage}
-                    labelRowsPerPage="Filas por página"
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
+      {verBuscador == true ? (
+        <input
+          label="Buscar"
+          className="form-control"
+          placeholder="Búsqueda en la tabla"
+          variant="outlined"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{ marginBottom: 10 }}
+        />
+      ) : (
+        ""
+      )}
+      {data != "" ? (
+        <TableContainer component={Paper}>
+          <Table size="large" aria-label="simple table">
+            <TableHead className="bg-general">
+              <TableRow className="text-center text-white bg-general">
+                {headers.map((header) => (
+                  <TableCell key={header.key} className="text-white">
+                    {header.label}
+                    <TableSortLabel
+                      active={orderBy === header.key}
+                      direction={orderBy === header.key ? order : "asc"}
+                      onClick={() => handleSort(header.key)}
                     />
-                </TableContainer>
-
-            :
-                <p>No hay datos según el tipo ni rango de fechas seleccionado</p>
-
-        }
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {data
+                .filter((item) => {
+                  const searchTermLowerCase = searchTerm.toLowerCase();
+                  return headers.some((header) => {
+                    const value = item[header.key] || "";
+                    return value
+                      .toString()
+                      .toLowerCase()
+                      .includes(searchTermLowerCase);
+                  });
+                })
+                .sort((a, b) => {
+                  if (order === "asc") {
+                    return a[orderBy] < b[orderBy] ? -1 : 1;
+                  } else {
+                    return a[orderBy] > b[orderBy] ? -1 : 1;
+                  }
+                })
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row) => (
+                  <TableRow key={row.id}>
+                    {headers.map((header) => (
+                      <TableCell key={header.key}>
+                        {/* {row[header.key]} */}
+                        {header.key === "tipo_venta"
+                          ? nivelesVenta[row[header.key]]
+                          : header.key === "created_at"
+                          ? row[header.key].split("T")[0]
+                          : header.key === "monto"
+                          ? `S/. ${row[header.key]}`
+                          : header.key === "ganancia"
+                          ? `S/. ${row[header.key]}`
+                          : row[header.key]}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+          <TablePagination
+            rowsPerPageOptions={[10, 15, 25]}
+            component="div"
+            count={data.length}
+            rowsPerPage={rowsPerPage}
+            labelRowsPerPage="Filas por página"
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </TableContainer>
+      ) : (
+        <p>No hay datos según el tipo ni rango de fechas seleccionado</p>
+      )}
     </div>
   );
 }

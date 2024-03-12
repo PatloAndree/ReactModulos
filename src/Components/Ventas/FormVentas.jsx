@@ -103,7 +103,7 @@ function FormVentas({ venta, setValorRespuesta, objetoEliminar }) {
   };
 
   return (
-    <div className=" row h-50">
+    <div className=" row">
       {/* <div className="">   */}
       <div className="d-flex justify-content-between">
         <p>

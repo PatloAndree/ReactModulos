@@ -31,8 +31,6 @@ const grabarVenta = async (venta) => {
     headers: {
       "Content-Type": "application/json",
     },
-    // url: "http://192.168.18.30/Backend/controllers/usuarioController.php",
-    // url: "http://localhost/newVersion/public/agregarUsuario",
     url: "http://127.0.0.1:8000/api/ventas/agregarVenta",
 
     data: venta,
@@ -49,14 +47,11 @@ const grabarVenta = async (venta) => {
 };
 
 const editarVenta = async (venta) => {
-  
   await axios({
     method: "put",
     headers: {
       "Content-Type": "application/json",
     },
-    // url: `http://192.168.18.30/Backend/controllers/usuarioController.php?id=${idUsuario}}`,
-    // url: `http://localhost/newVersion/public/editarUsuario`,
     url: `http://127.0.0.1:8000/api/ventas/editarVenta`,
     data: venta,
   })
@@ -68,8 +63,5 @@ const editarVenta = async (venta) => {
     });
 };
 
-
-
-// export default VentasApi;
 
 export { listarVentas , listarVentasTipo, grabarVenta, editarVenta };

@@ -56,24 +56,36 @@ import React, { useState, useEffect, useCallback } from "react";
 import { listarVentas } from "../Auth/Ventas/ventas_api";
 import TablaGeneral from "../Components/TablaMui/TablaGeneral";
 import SelectOptions from "../Components/Ventas/SelectOptions";
+import Loader from "react-js-loader";
+
 
 const ReportesPage = () => {
   const [ventasFiltradas, setVentasFiltradas] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const headers = [
     { key: "nombre", label: "Nombre" },
     { key: "tipo_venta", label: "Valor" },
     { key: "monto", label: "Monto" },
     { key: "ganancia", label: "Ganancia" },
-    { key: "status", label: "Status" },
+    { key: "created_at", label: "Fecha de venta" },
   ];
 
   const fetchData = useCallback(async () => {
     try {
       const data = await listarVentas();
-      setVentasFiltradas(data.data);
+      if (data) {
+        console.log("entroo")
+        setVentasFiltradas(data.data);
+        setLoading(true);
+      }else{
+      setLoading(false);
+      console.log("eno ntroo")
+
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
+
     }
   }, []);
 
@@ -103,20 +115,28 @@ const ReportesPage = () => {
   return (
     <div className="row w-100 p-5">
       <p style={{ fontWeight: "bolder" }}>Reportes generales</p>
+
       <SelectOptions setVentasFiltradas={setVentasFiltradas} />
 
       <div className="d-flex justify-content-end align-items-center ">
-        {/* <p style={{fontWeight:'bolder'}}>Reportes generales</p> */}
         <button className="btn btn-success  mb-2" onClick={exportToCSV}>
-          Eporta a CSV
+           <i className="bx bx-file-blank"></i> CSV
         </button>
       </div>
 
-      <TablaGeneral
-        headers={headers}
-        data={ventasFiltradas}
-        verBuscador={false}
-      />
+      <div>
+      {
+        loading != false && ventasFiltradas != null
+        ?
+        <TablaGeneral
+          headers={headers}
+          data={ventasFiltradas}
+          verBuscador={true}
+        />
+        :
+        <Loader type="spinner-default" bgColor={"#4723D9"} color={"#4723D9"} size={60} />
+      }
+      </div>
     </div>
   );
 };

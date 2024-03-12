@@ -6,6 +6,8 @@ import ListadoPage from "../Pages/ListadoPage";
 import ReportesPage from "../Pages/ReportesPage";
 import GraficosPage from "../Pages/GraficosPage";
 import AjustesPage from "../Pages/AjustesPage";
+import ProductosPage from "../Pages/ProductosPage";
+
 
 const WithSidebar = ({isAuthenticated }) => {
     if (!isAuthenticated) {
@@ -24,6 +26,8 @@ const WithSidebar = ({isAuthenticated }) => {
             <Route path="/Reportes" element={<ReportesPage />} />
             <Route path="/Graficos" element={<GraficosPage />} />
             <Route path="/Ajustes" element={<AjustesPage />} />
+            <Route path="/Productos" element={<ProductosPage />} />
+
 
 
         </Routes>

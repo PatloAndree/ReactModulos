@@ -25,7 +25,7 @@ const AjustesPage = () => {
     <div className="row p-3 ">
       <p style={{ fontWeight: "bolder" }}>Listado general</p>
 
-      <div className="col-12 col-md-12 col-xl-4 border rounded p-3 mt-5">
+      <div className="col-12 col-md-12 h-75 col-xl-4 border rounded p-3 mt-5">
         <Listado
           usuario={selectedUsuario}
           setValorRespuesta={setValorRespuesta}
