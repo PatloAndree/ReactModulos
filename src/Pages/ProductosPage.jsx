@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import Listado from "../Home/Listado";
-import BasicTable from "../Components/Usuarios/TablaUsuarios";
-import TableVentas from "../Components/Ventas/TableVentas";
 import TablaProductos from "../Components/Productos/TablaProductos";
 import FormProductos from "../Components/Productos/FormProductos";
 

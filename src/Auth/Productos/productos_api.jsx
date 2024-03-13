@@ -1,4 +1,3 @@
-import React from "react";
 import { API } from "../Axios/axiosApi";
 import axios from "axios";
 
@@ -9,26 +8,6 @@ const listarProductos = async () => {
   } catch (error) {
     console.error("Error al obtener productos:", error);
     return { success: false, error: "Error al listar productos" };
-  }
-};
-
-const listarVentasTipo = async (
-  tipoVenta,
-  fechaInicioFormateada,
-  fechaFinFormateada
-) => {
-  // console.log(fechaInicioFormateada,fechaFinFormateada);
-  try {
-    const response = await axios.post(`${API}ventas/listarTipo `, {
-      tipoVenta,
-      fechaInicioFormateada,
-      fechaFinFormateada,
-    });
-    console.log("consultandooo", response);
-    return { success: true, data: response.data };
-  } catch (error) {
-    console.error("Error al obtener usuarios:", error);
-    return { success: false, error: "Usuario o contraseña inválidos" };
   }
 };
 

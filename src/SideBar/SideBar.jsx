@@ -1,7 +1,6 @@
 // Sidebar.js
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Escritorio from "../Pages/EscritorioPage";
 import SidebarStyle from "./SideBarStyle.css";
 
 const Sidebar = () => {
@@ -49,7 +48,7 @@ const Sidebar = () => {
       <div className={`l-navbar ${isNavbarVisible ? "show" : ""}`}>
         <nav className="nav">
           <div>
-            <a href="#">
+            <a>
               <i
                 className={`bx ${
                   isNavbarVisible ? "bx-x" : ""

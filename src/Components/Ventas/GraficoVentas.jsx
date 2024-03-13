@@ -7,9 +7,6 @@ import {
   Tooltip,
   Legend,
   CartesianGrid,
-  PieChart,
-  Pie,
-  Cell,
   LineChart,
   Line,
   ResponsiveContainer
@@ -17,55 +14,12 @@ import {
 import { listarVentas } from "../../Auth/Ventas/ventas_api";
 import { useState } from "react";
 
-const data = [
-  {
-    id: 4,
-    nombre: "CASACAS",
-    tipo_venta: 1,
-    monto: "540.00",
-    ganancia: "320.00",
-    created_at: "2024-01-10T16:48:00.000000Z",
-    updated_at: "2024-03-07T16:48:00.000000Z",
-    status: 1,
-  },
-  {
-    id: 5,
-    nombre: "CASACAS 2",
-    tipo_venta: 2,
-    monto: "510.00",
-    ganancia: "220.00",
-    created_at: "2024-01-17T16:48:00.000000Z",
-    updated_at: "2024-03-07T16:48:00.000000Z",
-    status: 1,
-  },
-  {
-    id: 7,
-    nombre: "MODELOS",
-    tipo_venta: 3,
-    monto: "5841.00",
-    ganancia: "600.00",
-    created_at: "2024-01-17T12:37:46.000000Z",
-    updated_at: null,
-    status: 1,
-  },
-  {
-    id: 8,
-    nombre: "nuevopolo",
-    tipo_venta: 2,
-    monto: "8555.00",
-    ganancia: "4000.00",
-    created_at: "2024-01-29T12:37:54.000000Z",
-    updated_at: null,
-    status: 1,
-  },
-];
-
 const BarChartExample = ({ ventasFiltradas }) => {
   const [dataVenta, setDataVenta] = useState([]);
 
   const consultarTipoVenta = async () => {
     console.log(ventasFiltradas);
-    if (ventasFiltradas.length == 0) {
+    if (ventasFiltradas.length === 0) {
       try {
         const response = await listarVentas();
         setDataVenta(response.data);
@@ -102,8 +56,6 @@ const BarChartExample = ({ ventasFiltradas }) => {
     consultarTipoVenta();
   }, []);
 
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
-
   return (
     <div className="d-flex row ">
       <div className="col-12 col-md-6 col-xl-6  d-flex justify-content-center align-items-center" >
@@ -127,28 +79,6 @@ const BarChartExample = ({ ventasFiltradas }) => {
         </BarChart>
         </ResponsiveContainer>
       </div>
-
-      {/* <div className="col-12 col-md-6 border">
-        <PieChart width={700} height={700}>
-          <Pie
-            data={data}
-            cx={200}
-            cy={200}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="tipo_venta"
-            label
-          >
-            {data.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-          <Tooltip />
-        </PieChart>
-      </div> */}
 
       <div className="col-12 col-md-6 col-xl-6 d-flex justify-content-center align-items-center" style={{  height: 400 }}>
         <ResponsiveContainer>

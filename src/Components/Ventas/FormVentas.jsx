@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import Loader from "react-js-loader";
-import { grabarVenta, listarVentas, editarVenta } from "../../Auth/Ventas/ventas_api";
+import { grabarVenta, editarVenta } from "../../Auth/Ventas/ventas_api";
 
 function FormVentas({ venta, setValorRespuesta, objetoEliminar }) {
   const [ventaId, setVentaId] = useState(0);
@@ -10,9 +7,7 @@ function FormVentas({ venta, setValorRespuesta, objetoEliminar }) {
   const [tipo, setTipo] = useState("");
   const [monto, setMonto] = useState("");
   const [ganancia, setGanancia] = useState("");
-  const [selectedUsuario, setSelectedUsuario] = useState(null);
   const [editarOpcion, setEditarOpcion] = useState(false);
-  const [ventas, setVentas] = useState([]);
 
   function limpiarData() {
     setNombre("");
@@ -23,19 +18,9 @@ function FormVentas({ venta, setValorRespuesta, objetoEliminar }) {
     // setEditarOpcion(false);
   }
 
-  const fetchData = async () => {
-    try {
-      const data = await listarVentas();
-      setVentas(data.data);
-    } catch (error) {
-      // Maneja el error aquí
-    }
-  };
-
   useEffect(() => {
     // console.log(llamarUsuarios);
-    fetchData();
-    if (venta != "" && venta != null) {
+    if (venta !== "" && venta !== null) {
       console.log("soy vacio");
       setNombre(venta.nombre);
       setTipo(venta.tipo_venta);
@@ -45,12 +30,6 @@ function FormVentas({ venta, setValorRespuesta, objetoEliminar }) {
       console.log(venta);
       setEditarOpcion(true);
     }
-
-    // if (objetoEliminar != "" && objetoEliminar != null) {
-    //   console.log(objetoEliminar.id);
-    //     const idUsuario = objetoEliminar.id;
-    //     eliminarUsuario(idUsuario);
-    // }
   }, [venta]);
 
   const grabarVentas = async (event) => {

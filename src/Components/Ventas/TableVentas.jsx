@@ -69,10 +69,6 @@ export default function TableVentas({
     }
   };
 
-  const handleEliminar2 = (usuario1) => {
-    setEliminarUsuario(usuario1);
-  };
-
   return (
     <div className="table">
       <input
@@ -85,7 +81,7 @@ export default function TableVentas({
         style={{ marginBottom: 10 }}
       />
       {
-          loading != false && ventas != null
+          loading !== false && ventas !== null
 
           ?
           <TableContainer component={Paper}>

@@ -42,7 +42,7 @@ export default function TablaGeneral({ headers, data, verBuscador }) {
 
   return (
     <div className="table">
-      {verBuscador == true ? (
+      {verBuscador === true ? (
         <input
           label="Buscar"
           className="form-control"
@@ -55,7 +55,7 @@ export default function TablaGeneral({ headers, data, verBuscador }) {
       ) : (
         ""
       )}
-      {data != "" ? (
+      {data !== "" ? (
         <TableContainer component={Paper}>
           <Table size="large" aria-label="simple table">
             <TableHead className="bg-general">

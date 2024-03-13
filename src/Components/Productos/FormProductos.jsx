@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import Loader from "react-js-loader";
-import { listarProductos , grabarProductos, editarProductos, eliminarProductos} from "../../Auth/Productos/productos_api";
+import { grabarProductos, editarProductos, eliminarProductos} from "../../Auth/Productos/productos_api";
 
 function FormProductos({ producto, setValorRespuesta, objetoEliminar }) {
   
@@ -13,10 +10,7 @@ function FormProductos({ producto, setValorRespuesta, objetoEliminar }) {
   const [precio_venta, setPrecioVenta] = useState("");
   const [stock, setStock] = useState("");
 
-  const [selectedUsuario, setSelectedUsuario] = useState(null);
   const [editarOpcion, setEditarOpcion] = useState(false);
-
-  const [productos,setProductos] = useState([]);
 
   function limpiarData() {
     setNombre("");
@@ -26,15 +20,6 @@ function FormProductos({ producto, setValorRespuesta, objetoEliminar }) {
     setStock("");
     setEditarOpcion(false);
   }
-
-  const fetchData = async () => {
-    try {
-      const data = await listarProductos();
-      setProductos(data.data);
-    } catch (error) {
-      // Maneja el error aquí
-    }
-  };
 
   const grabarProducto = async (event) => {
     event.preventDefault();
@@ -89,7 +74,7 @@ function FormProductos({ producto, setValorRespuesta, objetoEliminar }) {
   useEffect(() => {
     // console.log(llamarUsuarios);
     // fetchData();
-    if (producto != "" && producto != null) {
+    if (producto !== "" && producto !== null) {
       console.log("soy vacio");
       setNombre(producto.nombre);
       setAbrev(producto.abreviacion);
@@ -101,8 +86,7 @@ function FormProductos({ producto, setValorRespuesta, objetoEliminar }) {
       setEditarOpcion(true);
     }
 
-    if (objetoEliminar != "" && objetoEliminar != null) {
-      console.log(objetoEliminar.id);
+    if (objetoEliminar !== "" && objetoEliminar !== null) {
         eliminarProducto();
     }
   }, [producto, objetoEliminar]);
@@ -110,9 +94,6 @@ function FormProductos({ producto, setValorRespuesta, objetoEliminar }) {
   const eliminarProducto = async () => {
     try {
       if (objetoEliminar !== "") {
-            // const nuevoProducto = {
-            //   id:productoId
-            // };
         const data = await eliminarProductos(objetoEliminar.id);
         console.log("Registro eliminado");
         limpiarData();
@@ -208,24 +189,6 @@ function FormProductos({ producto, setValorRespuesta, objetoEliminar }) {
               />
             </div>
 
-            {/*              
-              {
-                editarOpcion == false 
-                ?
-                ""
-                :
-              <div className="col-12 mb-3 ">
-                <label for="exampleInputPassword1" className="form-label">
-                  Estado usuario
-                </label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Selecciona</option>
-                  <option value="1">Activo</option>
-                  <option value="2">Inactivo</option>
-                </select>
-              </div>
-
-              } */}
           </div>
 
           {editarOpcion == false ? (

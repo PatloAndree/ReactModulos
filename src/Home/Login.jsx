@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import validarLogin from "../Auth/login_api";
 
 function Login({ onLogin }  ) {
@@ -8,7 +7,6 @@ function Login({ onLogin }  ) {
   const [contrasena, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const [usuarios, setUsuarios] = useState([]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

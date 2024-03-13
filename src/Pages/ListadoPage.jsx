@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-import Listado from "../Home/Listado";
-import BasicTable from "../Components/Usuarios/TablaUsuarios";
 import FormVentas from "../Components/Ventas/FormVentas";
 import TableVentas from "../Components/Ventas/TableVentas";
-import Loader from "react-js-loader";
 
 const ListadoPage = () => {
   const [selectedVenta, setSelectedVenta] = useState(null);
   const [valorRespuesta, setValorRespuesta] = useState(false);
   const [eliminaelUsuario, setEliminarUsuario] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   const handleRowClick = (venta) => {
     setSelectedVenta(venta);

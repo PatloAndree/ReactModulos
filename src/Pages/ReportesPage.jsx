@@ -1,57 +1,3 @@
-// import React , {useState,useEffect,useCallback} from 'react';
-// import Ventas from '../Components/Ventas/Ventas';
-// import SelectOptions from '../Components/Ventas/SelectOptions';
-// import { listarVentas } from '../Auth/Ventas/ventas_api';
-// import TablaVentas from '../Components/Ventas/Table';
-// import TablaGeneral from '../Components/TablaMui/TablaGeneral';
-
-// const ReportesPage = () => {
-
-//     const [ventasFiltradas, setVentasFiltradas] = useState([]);
-
-//     const headers = [
-//       { key: "nombre", label: "Nombre" },
-//       { key: "tipo_venta", label: "Valor" },
-//       { key: "monto", label: "Monto" },
-//       { key: "ganancia", label: "Ganancia" },
-//       { key: "status", label: "Status" },
-//     ];
-
-//     const fetchData = useCallback(async () => {
-//         try {
-//           const data = await listarVentas();
-//           setVentasFiltradas(data.data);
-//         } catch (error) {
-//           console.error("Error fetching data:", error);
-//         }
-//       }, []);
-
-//       useEffect(() => {
-//         fetchData();
-//       }, [fetchData]);
-
-//     return (
-//         <div className='row w-100 p-5'>
-//             <p style={{fontWeight:'bolder'}}>Reportes generales</p>
-
-//             <SelectOptions setVentasFiltradas={setVentasFiltradas} />
-//             {/* <Ventas ventasFiltradas={ventasFiltradas} /> */}
-//             {/* <TablaVentas ventasFiltradas={ventasFiltradas} /> */}
-
-//             {/* {Array.isArray(ventasFiltradas) && ventasFiltradas.map((venta) => (
-//             // Código para renderizar cada venta aquí
-//             ))} */}
-//             <div className='d-flex justify-content-between align-items-center'>
-//                 {/* <button onClick={exportToExcel}>Exportar a Excel</button> */}
-//             </div>
-
-//           <TablaGeneral  headers={headers} data={ventasFiltradas} verBuscador={false} />
-
-//         </div>
-//     );
-// }
-
-// export default ReportesPage;
 import React, { useState, useEffect, useCallback } from "react";
 import { listarVentas } from "../Auth/Ventas/ventas_api";
 import TablaGeneral from "../Components/TablaMui/TablaGeneral";
@@ -126,7 +72,7 @@ const ReportesPage = () => {
 
       <div>
       {
-        loading != false && ventasFiltradas != null
+        loading !== false && ventasFiltradas !== null
         ?
         <TablaGeneral
           headers={headers}

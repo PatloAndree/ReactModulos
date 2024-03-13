@@ -8,8 +8,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TablePagination from "@mui/material/TablePagination";
-import { visuallyHidden } from "@mui/utils";
-import { Box } from "@mui/system";
 import { TableSortLabel } from "@mui/material";
 import { listarProductos } from "../../Auth/Productos/productos_api";
 import Loader from "react-js-loader";
@@ -29,7 +27,7 @@ export default function TablaProductos({
   const [loading, setLoading] = useState(false);
 
 
-  const listaUsuarios = async () => {
+  const listarProductosGeneral = async () => {
     const cargarDatos = await listarProductos();
     console.log("soy los datos de productos")
     if (cargarDatos) {
@@ -42,7 +40,7 @@ export default function TablaProductos({
   };
 
   useEffect(() => {
-    listaUsuarios();
+    listarProductosGeneral();
   }, [llamarProductos]);
 
   const handleChangePage = (event, newPage) => {
@@ -84,8 +82,7 @@ export default function TablaProductos({
         style={{ marginBottom: 10 }}
       />
       {
-        loading == false  && productos != null ? 
-
+        loading === false  && productos !== null ? 
             <TableContainer component={Paper}>
                 <Table size="large" aria-label="simple table">
                 <TableHead className="bg-general">

@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import imagenAvatar from "../assets/avatar.png";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import Loader from "react-js-loader";
 import listarUsuarios from "../Auth/listarEmpleados_api";
 import grabarUsuario from "../Auth/grabarEmpleado_api";
 import editarUsuario from "../Auth/updateEmpleado_api";
-import BasicTable from "../Components/Usuarios/TablaUsuarios";
 
 function Listado({usuario, setValorRespuesta, objetoEliminar}) {
 
@@ -47,11 +43,8 @@ function Listado({usuario, setValorRespuesta, objetoEliminar}) {
   };
 
   useEffect(() => {
-    // console.log(llamarUsuarios);
     fetchData();
-    if (usuario != "" && usuario != null ) {
-    console.log("soy vacio");
-      console.log(usuario);
+    if (usuario !== "" && usuario !== null ) {
       setNombre(usuario.name);
       setApellidos(usuario.apellidos);
       setDni(usuario.dni);
@@ -61,7 +54,7 @@ function Listado({usuario, setValorRespuesta, objetoEliminar}) {
       setEditarOpcion(true);
     }
 
-    if (objetoEliminar != "" && objetoEliminar != null) {
+    if (objetoEliminar !== "" && objetoEliminar !== null) {
       console.log(objetoEliminar.id);
         const idUsuario = objetoEliminar.id;
         eliminarUsuario(idUsuario);
@@ -125,17 +118,14 @@ function Listado({usuario, setValorRespuesta, objetoEliminar}) {
   const eliminarUsuario = async (id) => {
     try {
       const response = await axios.delete(
-        // `http://localhost/newVersion/public/eliminarUsuario?id=${id}`
         `http://127.0.0.1:8000/api/usuarios/eliminarUsuario/${id}`
       );
       console.log(response.data.message);
       setValorRespuesta(true);
       limpiarData();
 
-      // Manejar la respuesta si es necesario
     } catch (error) {
       console.error("Error al eliminar usuario Api:", error);
-      // Manejar el error si es necesario
     }
   };
 
