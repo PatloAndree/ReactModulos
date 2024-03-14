@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import { API } from './Axios/axiosApi';
+import { API } from './Axios/axios_api';
 
 
 const listarUsuarios = async () => {

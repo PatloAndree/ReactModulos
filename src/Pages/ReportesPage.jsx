@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { listarVentas } from "../Auth/Ventas/ventas_api";
 import TablaGeneral from "../Components/TablaMui/TablaGeneral";
-import SelectOptions from "../Components/Ventas/SelectOptions";
+import SelectOptions from "../Components/Select/SelectOptions";
 import Loader from "react-js-loader";
 
 

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import SidebarStyle from "./SideBarStyle.css";
 
 const Sidebar = () => {
+
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
     localStorage.removeItem("usuario_sesion");

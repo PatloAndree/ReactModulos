@@ -33,9 +33,9 @@ export default function TablaProductos({
     if (cargarDatos) {
       setProductos(cargarDatos.data);
       setValorRespuesta(false);
-      setLoading(false);
+      setLoading(true);
     }else{
-        setLoading(true);
+        setLoading(false  );
     }
   };
 
@@ -82,7 +82,7 @@ export default function TablaProductos({
         style={{ marginBottom: 10 }}
       />
       {
-        loading === false  && productos !== null ? 
+        loading !== false  && productos !== null ? 
             <TableContainer component={Paper}>
                 <Table size="large" aria-label="simple table">
                 <TableHead className="bg-general">

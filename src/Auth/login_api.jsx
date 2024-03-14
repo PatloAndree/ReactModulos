@@ -1,11 +1,11 @@
 // LoginService.js
-
 import axios from 'axios';
+import { API } from './Axios/axios_api';
 
 const validarLogin = async (email, contrasena) => {
   try {
     const response = await axios.post(
-      "http://127.0.0.1:8000/api/validarLogin",
+      `${API}validarLogin`,
       {
         email: email,
         password: contrasena,

@@ -1,4 +1,4 @@
-import { API } from "../Axios/axiosApi";
+import { API } from "../Axios/axios_api";
 import axios from "axios";
 
 const listarProductos = async () => {
@@ -17,7 +17,7 @@ const grabarProductos = async (venta) => {
     headers: {
       "Content-Type": "application/json",
     },
-    url: "http://127.0.0.1:8000/api/productos/agregarProducto",
+    url: `${API}agregarProducto`,
 
     data: venta,
   })
@@ -35,7 +35,7 @@ const editarProductos = async (producto) => {
     headers: {
       "Content-Type": "application/json",
     },
-    url: `http://127.0.0.1:8000/api/productos/editarProducto`,
+    url: `${API}editarProducto`,
     data: producto,
   })
     .then(async function (d) {
@@ -53,7 +53,7 @@ const eliminarProductos = async (id) => {
     headers: {
       "Content-Type": "application/json",
     },
-    url: `http://127.0.0.1:8000/api/productos/eliminarProducto/${id}`,
+    url: `${API}productos/eliminarProducto/${id}`,
     // data: producto,
   })
     .then(async function (d) {

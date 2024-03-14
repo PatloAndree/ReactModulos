@@ -30,9 +30,9 @@ export default function BasicTable({
     if (cargarDatos) {
       setUsuarios(cargarDatos.data);
       setValorRespuesta(false);
-      setLoading(false);
-    } else {
       setLoading(true);
+    } else {
+      setLoading(false);
     }
   };
 
@@ -77,7 +77,7 @@ export default function BasicTable({
         onChange={(e) => setSearchTerm(e.target.value)}
         style={{ marginBottom: 10 }}
       />
-      {loading === false && usuarios !== null ? (
+      {loading !== false && usuarios !== null ? (
         <TableContainer component={Paper}>
           <Table size="large" aria-label="simple table">
             <TableHead className="bg-general">

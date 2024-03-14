@@ -1,5 +1,5 @@
 import React from "react";
-import { API } from "../Axios/axiosApi";
+import { API } from "../Axios/axios_api";
 import axios from "axios";
 
   const listarVentas = async () => {
@@ -31,7 +31,7 @@ const grabarVenta = async (venta) => {
     headers: {
       "Content-Type": "application/json",
     },
-    url: "http://127.0.0.1:8000/api/ventas/agregarVenta",
+    url: `${API}ventas/agregarVenta`,
 
     data: venta,
   })
@@ -52,7 +52,7 @@ const editarVenta = async (venta) => {
     headers: {
       "Content-Type": "application/json",
     },
-    url: `http://127.0.0.1:8000/api/ventas/editarVenta`,
+    url: `${API}ventas/editarVenta`,
     data: venta,
   })
     .then(async function (d) {
