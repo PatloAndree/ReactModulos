@@ -7,10 +7,9 @@ import GraficoInicioBarras from "../Components/GraficoInicio/GraficoInicioBarras
 const Escritorio = () => {
   return (
     <div className="container-fluid">
-      <div className="card-block">
+      <div className="card-block p-2">
         <Cards />
       </div>
-
       <div className="row mt-5">
         <div className="col-12 col-md-12 col-xl-6 ">
         <GraficoInicio />

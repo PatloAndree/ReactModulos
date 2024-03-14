@@ -82,7 +82,7 @@ function FormVentas({ venta, setValorRespuesta, objetoEliminar }) {
   };
 
   return (
-    <div className=" row">
+    <div className=" row ms-1 border rounded p-2">
       {/* <div className="">   */}
       <div className="d-flex justify-content-between">
         <p>

@@ -3,6 +3,8 @@ import axios from "axios";
 import listarUsuarios from "../Auth/listarEmpleados_api";
 import grabarUsuario from "../Auth/grabarEmpleado_api";
 import editarUsuario from "../Auth/updateEmpleado_api";
+import { API } from "../Auth/Axios/axios_api";
+
 
 function Listado({usuario, setValorRespuesta, objetoEliminar}) {
 
@@ -118,7 +120,7 @@ function Listado({usuario, setValorRespuesta, objetoEliminar}) {
   const eliminarUsuario = async (id) => {
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/api/usuarios/eliminarUsuario/${id}`
+        `${API}usuarios/eliminarUsuario/${id}`
       );
       console.log(response.data.message);
       setValorRespuesta(true);
@@ -130,7 +132,7 @@ function Listado({usuario, setValorRespuesta, objetoEliminar}) {
   };
 
   return (
-    <div className=" row ">
+    <div className=" row  p-3 border rounded ">
 
       {/* <div className="">   */}
       <div className="d-flex justify-content-between">

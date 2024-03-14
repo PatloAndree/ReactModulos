@@ -110,7 +110,7 @@ function FormProductos({ producto, setValorRespuesta, objetoEliminar }) {
 
 
   return (
-    <div className=" row ">
+    <div className="ms-2 row border p-2 rounded">
       {/* <div className="">   */}
       <div className="d-flex justify-content-between">
         <p>

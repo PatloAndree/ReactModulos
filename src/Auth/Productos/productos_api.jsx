@@ -17,7 +17,7 @@ const grabarProductos = async (venta) => {
     headers: {
       "Content-Type": "application/json",
     },
-    url: `${API}agregarProducto`,
+    url: `${API}productos/agregarProducto`,
 
     data: venta,
   })
@@ -35,7 +35,7 @@ const editarProductos = async (producto) => {
     headers: {
       "Content-Type": "application/json",
     },
-    url: `${API}editarProducto`,
+    url: `${API}productos/editarProducto`,
     data: producto,
   })
     .then(async function (d) {

@@ -21,7 +21,7 @@ function Login({ onLogin }  ) {
   };
 
   return (
-    <section className="vh-50 pt-2" >
+    <section className="pt-2" >
     {/* <section className="" style={{ backgroundColor: "#" }}> */}
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-75">
@@ -30,7 +30,8 @@ function Login({ onLogin }  ) {
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                    // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                    src="https://img.freepik.com/foto-gratis/lista-compra_329181-9922.jpg?t=st=1710459321~exp=1710462921~hmac=fae68165fed479b4fb17eeaf3c5b21ded8385adaf0b69a535afed14dff0ad73f&w=740"
                     alt="login form"
                     className="img-fluid"
                     style={{ borderRadius: "1rem 0 0 1rem" }}

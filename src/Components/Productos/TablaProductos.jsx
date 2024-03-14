@@ -71,7 +71,6 @@ export default function TablaProductos({
 
   return (
     <div className="table">
-
       <input
         label="Buscar"
         className="form-control"
@@ -161,13 +160,13 @@ export default function TablaProductos({
                         <TableCell>
                             <div>
                             <i
-                                className="bx bx-edit-alt"
+                                className="bx bx-edit-alt fs-6"
                                 style={{ cursor: "pointer", color: "blue" }}
                                 onClick={() => handleRowClick(producto)}
                             ></i>
 
                             <i
-                                className="bx bx-trash-alt"
+                                className="bx bx-trash-alt fs-6"
                                 style={{ cursor: "pointer", color: "red  " }}
                                 onClick={() => handleEliminar2(producto)}
                             ></i>

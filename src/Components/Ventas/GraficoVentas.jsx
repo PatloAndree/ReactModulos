@@ -57,10 +57,10 @@ const BarChartExample = ({ ventasFiltradas }) => {
   }, []);
 
   return (
-    <div className="d-flex row ">
-      <div className="col-12 col-md-6 col-xl-6  d-flex justify-content-center align-items-center" >
-        <ResponsiveContainer>
+    <div className="row ">
 
+      <div className="col-12 col-md-6 col-xl-6 d-flex justify-content-center align-items-center" style={{  height: 400 }}>
+        <ResponsiveContainer>
         <BarChart
           width={700}
           height={500}

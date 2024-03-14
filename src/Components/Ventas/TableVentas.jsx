@@ -158,13 +158,13 @@ export default function TableVentas({
                       <TableCell>
                         <div>
                           <i
-                            className="bx bx-edit-alt"
+                            className="bx bx-edit-alt fs-6 pe-1"
                             style={{ cursor: "pointer", color: "blue" }}
                             onClick={() => handleRowClick(venta)}
                           ></i>
 
                           <i
-                            className="bx bx-trash-alt"
+                            className="bx bx-trash-alt fs-6"
                             style={{ cursor: "pointer", color: "red  " }}
                             // onClick={() => handleEliminar2(venta)}
                           ></i>

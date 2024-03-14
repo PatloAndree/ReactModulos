@@ -59,7 +59,7 @@ const ReportesPage = () => {
   };
 
   return (
-    <div className="row w-100 p-5">
+    <div className="row w-100 p-3">
       <p style={{ fontWeight: "bolder" }}>Reportes generales</p>
 
       <SelectOptions setVentasFiltradas={setVentasFiltradas} />

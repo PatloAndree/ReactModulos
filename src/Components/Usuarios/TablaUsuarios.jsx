@@ -154,13 +154,13 @@ export default function BasicTable({
                     <TableCell>
                       <div>
                         <i
-                          className="bx bx-edit-alt"
+                          className="bx bx-edit-alt fs-6"
                           style={{ cursor: "pointer", color: "blue" }}
                           onClick={() => handleRowClick(usuario)}
                         ></i>
 
                         <i
-                          className="bx bx-trash-alt"
+                          className="bx bx-trash-alt fs-6"
                           style={{ cursor: "pointer", color: "red  " }}
                           onClick={() => handleEliminar2(usuario)}
                         ></i>
