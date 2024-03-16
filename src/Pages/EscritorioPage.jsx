@@ -6,7 +6,7 @@ import GraficoInicioBarras from "../Components/GraficoInicio/GraficoInicioBarras
 
 const Escritorio = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid cuerpo_general   ">
       <div className="card-block p-2">
         <Cards />
       </div>

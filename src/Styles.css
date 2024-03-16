@@ -1,22 +1,23 @@
 .pickers {
     background-color: #F0F0F0;
-    
+  }
+
+  .bg-general {
+    background-color: var(--first-color);
+  }
+
+  .bg-login {
+    background-color: var(--color-opcional);
   }
 
   .text-white1{
     color: white;
-    
   }
-  .bg-general {
-    background-color: var(--first-color);
-    /* color: aqua; */
-  }
-  /* .text-white:hover{
-    color: white;
-  } */
+
 
   @media (max-width: 600px) {
     .table {
-      width: 310px;
+      width: 350px;
+      margin: 0;
     }
   }

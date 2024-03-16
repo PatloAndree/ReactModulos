@@ -16,8 +16,8 @@ const GraficosPage = () => {
   }, [ventasFiltradas]);
 
   return (
-    <div className="row w-100 p-3">
-      <p style={{ fontWeight: "bolder" }}>Gráficos generales</p>
+    <div className="row w-100 cuerpo_general">
+      <p style={{ fontWeight: "bolder" }} className="mt-2">Gráficos generales</p>
 
       <SelectOptions setVentasFiltradas={setVentasFiltradas} />
 

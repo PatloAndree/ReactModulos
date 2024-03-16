@@ -59,8 +59,9 @@ const ReportesPage = () => {
   };
 
   return (
-    <div className="row w-100 p-3">
-      <p style={{ fontWeight: "bolder" }}>Reportes generales</p>
+    <div className="row w-100 cuerpo_general">
+
+      <p style={{ fontWeight: "bolder" }} className="mt-2">Reportes generales</p>
 
       <SelectOptions setVentasFiltradas={setVentasFiltradas} />
 

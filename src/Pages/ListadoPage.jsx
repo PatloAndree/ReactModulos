@@ -20,10 +20,10 @@ const ListadoPage = () => {
   };
 
   return (
-    <div className="row w-100 p-1">
-      <p style={{ fontWeight: "bolder" }} className="mt-3 ms-3">Ventas generales</p>
+    <div className="row w-100  cuerpo_general">
+      <p style={{ fontWeight: "bolder" }} className="mt-2">Ventas generales</p>
 
-      <div className="col-12 col-md-12 col-xl-4 p-4 ">
+      <div className="col-12 col-md-12 col-xl-4 p-3 ">
         <FormVentas
           venta={selectedVenta}
           setValorRespuesta={setValorRespuesta}
@@ -31,7 +31,7 @@ const ListadoPage = () => {
         />
       </div>
 
-      <div className=' className="col-12 col-md-12 col-xl-8 p-4 mt-1 "'>
+      <div className=' className="col-12 col-md-12 col-xl-8 p-3 "'>
         <TableVentas
           onRowClick={handleRowClick}
           llamarUsuarios={valorRespuesta}

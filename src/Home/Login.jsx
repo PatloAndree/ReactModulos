@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import validarLogin from "../Auth/login_api";
+import fondo_bg from '../assets/fondo.png'
 
 function Login({ onLogin }  ) {
   const [email, setEmail] = useState("");
@@ -21,17 +22,20 @@ function Login({ onLogin }  ) {
   };
 
   return (
-    <section className="pt-2" >
+    <section className="d-flex justify-content-center align-items-center vh-100 bg-login" >
     {/* <section className="" style={{ backgroundColor: "#" }}> */}
-      <div className="container py-5 h-100">
-        <div className="row d-flex justify-content-center align-items-center h-75">
-          <div className="col col-xl-10">
+      <div className="container  px-4 ">
+
+        <div className="row d-flex justify-content-center align-items-center ">
+          <div className="col col-xl-10 ">
+
             <div className="card" style={{ borderRadius: "1rem" }}>
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
-                    // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
-                    src="https://img.freepik.com/foto-gratis/lista-compra_329181-9922.jpg?t=st=1710459321~exp=1710462921~hmac=fae68165fed479b4fb17eeaf3c5b21ded8385adaf0b69a535afed14dff0ad73f&w=740"
+                    src=
+                  {fondo_bg}
+                    
                     alt="login form"
                     className="img-fluid"
                     style={{ borderRadius: "1rem 0 0 1rem" }}
@@ -76,7 +80,7 @@ function Login({ onLogin }  ) {
                         />
                       </div>
                       {error && (
-                        <div classNameName="alert alert-danger">{error}</div>
+                        <div className="alert alert-danger">{error}</div>
                       )}
                       <div className="pt-1 mb-4">
                         <button

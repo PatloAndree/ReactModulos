@@ -22,10 +22,10 @@ const ProductosPage = () => {
   };
 
   return (
-    <div className="row w-100 p-1">
-      <p style={{ fontWeight: "bolder" }} className="pt-3 ms-2">Productos general</p>
+    <div className="row w-100 cuerpo_general ">
+      <p style={{ fontWeight: "bolder" }} className="mt-2">Productos generales</p>
 
-      <div className="col-12 col-md-12 col-xl-4 mt-4">
+      <div className="col-12 col-md-12 col-xl-4 mt-2">
         <FormProductos
           producto={selectedProducto}
           setValorRespuesta={setValorRespuesta}
@@ -33,7 +33,7 @@ const ProductosPage = () => {
         />
       </div>
 
-      <div className=' className="col-12 col-md-12 col-xl-8 p-4 mt-1"'>
+      <div className="col-12 col-md-12 col-xl-8 mt-2 d-flex justify-content-center">
         <TablaProductos 
           onRowClick={handleRowClick}
           llamarProductos={valorRespuesta}

@@ -22,10 +22,10 @@ const AjustesPage = () => {
   };
 
   return (
-    <div className="row p-3">
+    <div className="row w-100 cuerpo_general">
       <p style={{ fontWeight: "bolder" }} className="mt-2">Listado general</p>
 
-      <div className="col-12 col-md-12 col-xl-4 mt-4">
+      <div className="col-12 col-md-12 col-xl-4">
         <Listado
           usuario={selectedUsuario}
           setValorRespuesta={setValorRespuesta}

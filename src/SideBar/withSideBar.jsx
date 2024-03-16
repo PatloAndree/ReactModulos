@@ -78,8 +78,8 @@ const WithSidebar = ({ isAuthenticated , setActivo}) => {
         <Route path="/Graficos" element={<GraficosPage />} />
         <Route path="/Ajustes" element={<AjustesPage />} />
         <Route path="/Productos" element={<ProductosPage />} />
-
       </Routes>
+
     </div>
   );
 };
