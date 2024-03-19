@@ -23,7 +23,7 @@ const Sidebar = () => {
     const storedUsuarioSesion = localStorage.getItem("usuario_sesion");
     // Analizar el JSON y almacenar el resultado en el estado
     setUsuarioSesion(JSON.parse(storedUsuarioSesion));
-    console.log(JSON.parse(storedUsuarioSesion));
+    // console.log(JSON.parse(storedUsuarioSesion));
   }, []);
 
   return (
@@ -41,7 +41,7 @@ const Sidebar = () => {
               <p className="fw-bold text-primary">{usuarioSesion ? usuarioSesion.name + usuarioSesion.apellidos : ""}</p>
             </div>
             <div className="header_img">
-              <img src="https://i.imgur.com/hczKIze.jpg" alt="" />{" "}
+              <img src="https://th.bing.com/th/id/OIP.9PPdes_WSxaqUQJxWab16AHaHa?rs=1&pid=ImgDetMain" alt="" />{" "}
             </div>
           </div>
         </header>

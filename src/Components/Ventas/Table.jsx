@@ -35,7 +35,7 @@ export default function TablaVentas({ ventasFiltradas }) {
                     <TableRow className="text-center">
                       <TableCell className="text-white">Nombre</TableCell>
                       <TableCell className="text-white" align="center">
-                        Tipo
+                        Tipo 1
                       </TableCell>
                       <TableCell className="text-white" align="center">
                         Monto
@@ -61,7 +61,7 @@ export default function TablaVentas({ ventasFiltradas }) {
                             {usuario.nombre}
                           </TableCell>
                           <TableCell align="center">{usuario.tipo_venta}</TableCell>
-                          <TableCell align="center">{usuario.monto || "-"}</TableCell>
+                          <TableCell align="center">{usuario.codigo || "-"}</TableCell>
                           <TableCell align="center">
                             {usuario.ganancia || "-"}
                           </TableCell>

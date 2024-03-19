@@ -31,8 +31,8 @@ export default function TableVentas({
       const cargarDatos = await listarVentas();
       if (cargarDatos) {
         setVentas(cargarDatos.data);
-        console.log(cargarDatos);
-        setValorRespuesta(true);
+        // console.log(cargarDatos);
+        setValorRespuesta(false);
         setLoading(true);
       }else{
         setLoading(false);
@@ -44,8 +44,9 @@ export default function TableVentas({
   }, []); 
 
   useEffect(() => {
+    
     listarTodasVentas();
-  }, [llamarUsuarios]);
+  }, [llamarUsuarios,setValorRespuesta]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -89,7 +90,7 @@ export default function TableVentas({
               <TableHead className="bg-general">
                 <TableRow className="text-center text-white bg-general">
                   <TableCell className="text-white">
-                    Nombres
+                    Código  
                     <TableSortLabel
                       active={orderBy === "nombre"}
                       direction={orderBy === "nombre" ? order : "asc"}
@@ -106,14 +107,16 @@ export default function TableVentas({
                   </TableCell>
 
                   <TableCell className="text-white">
-                    Monto
+                    Cliente
                     <TableSortLabel
                       active={orderBy === "email"}
                       direction={orderBy === "email" ? order : "asc"}
                       onClick={() => handleSort("email")}
                     ></TableSortLabel>
                   </TableCell>
-                  <TableCell className="text-white">Ganancia</TableCell>
+                  <TableCell className="text-white">Fecha</TableCell>
+                  <TableCell className="text-white">Monto total</TableCell>
+
 
                   <TableCell className="text-white">Estado</TableCell>
                   <TableCell className="text-white">Actions</TableCell>
@@ -136,7 +139,7 @@ export default function TableVentas({
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((venta) => (
                     <TableRow key={venta.id}>
-                      <TableCell>{venta.nombre}</TableCell>
+                      <TableCell>{venta.codigo_venta}</TableCell>
                       <TableCell>
                         {venta.tipo_venta === 1 ? (
                           <span className="badge text-bg-success">Alto</span>
@@ -146,8 +149,10 @@ export default function TableVentas({
                           <span className="badge text-bg-danger">Bajo</span>
                         )}
                       </TableCell>
-                      <TableCell>{venta.monto}</TableCell>
-                      <TableCell>{venta.ganancia || "-"}</TableCell>
+                      <TableCell>{venta.nombre}</TableCell>
+                      <TableCell>{(venta.created_at).slice(0,10)}</TableCell>
+
+                      <TableCell>S/.{venta.ganancia || "-"}</TableCell>
                       <TableCell>
                         {venta.status === 1 ? (
                           <span className="badge text-bg-success">Activo</span>
@@ -158,11 +163,15 @@ export default function TableVentas({
                       <TableCell>
                         <div>
                           <i
+                            className="bx bx-detail fs-6 pe-1 "
+                            style={{ cursor: "pointer", color: "gray" }}
+                            // onClick={() => handleRowClick(venta)}
+                          ></i>
+                          <i
                             className="bx bx-edit-alt fs-6 pe-1"
                             style={{ cursor: "pointer", color: "blue" }}
                             onClick={() => handleRowClick(venta)}
                           ></i>
-
                           <i
                             className="bx bx-trash-alt fs-6"
                             style={{ cursor: "pointer", color: "red  " }}

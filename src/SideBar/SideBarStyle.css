@@ -29,19 +29,19 @@ a{text-decoration: none}
 
 .nav_logo{margin-bottom: 2rem}
 
-.nav_logo-icon{font-size: 1.25rem;color: var(--white-color)}
+.nav_logo-icon{font-size: 1.25rem;color: #ffffff}
 
 .nav_logo-name{color: var(--white-color);font-weight: 700}
 
 .nav_link{position: relative;color: var(--first-color-light);margin-bottom: 1.5rem;transition: .3s}
 
-.nav_link:hover{color: var(--white-color)}
+.nav_link:hover{color: #fafafa}
 
 .nav_icon{font-size: 1.25rem}.show{left: 0}
 
 .body-pd{padding-left: calc(var(--nav-width) + 1rem)}
 
-.active{color: var(--white-color)}
+.active{color: var(--white-color) ; font-weight: bold}
 
 .active::before{content: '';position: absolute;left: 0;width: 10px;height: 32px;background-color: var(--white-color)}.height-100{height:100vh}
 

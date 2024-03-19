@@ -40,7 +40,7 @@ const grabarVenta = async (venta) => {
 
     })
     .catch(function (error) {
-      console.log("Registro rechazadao");
+      console.log("Registro rechazadao no inserto");
 
     });
 
