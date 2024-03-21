@@ -101,8 +101,6 @@ export default function TablaGeneral({ headers, data, verBuscador }) {
                           ? nivelesVenta[row[header.key]]
                           : header.key === "created_at"
                           ? row[header.key].split("T")[0]
-                          : header.key === "monto"
-                          ? `S/. ${row[header.key]}`
                           : header.key === "ganancia"
                           ? `S/. ${row[header.key]}`
                           : row[header.key]}

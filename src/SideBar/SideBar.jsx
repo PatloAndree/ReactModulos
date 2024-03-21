@@ -38,10 +38,10 @@ const Sidebar = () => {
           </div>
           <div className="d-flex justify-content-between m-2 align-items-center">
             <div className="me-3 mt-3">
-              <p className="fw-bold text-primary">{usuarioSesion ? usuarioSesion.name + usuarioSesion.apellidos : ""}</p>
+              <p className="fw-bold text-secondary">{usuarioSesion ? usuarioSesion.name + usuarioSesion.apellidos : ""}</p>
             </div>
             <div className="header_img">
-              <img src="https://th.bing.com/th/id/OIP.9PPdes_WSxaqUQJxWab16AHaHa?rs=1&pid=ImgDetMain" alt="" />{" "}
+              <img src="https://th.bing.com/th/id/OIF.MobO0fIAalDI693h0UZHQw?rs=1&pid=ImgDetMain" alt="" />{" "}
             </div>
           </div>
         </header>

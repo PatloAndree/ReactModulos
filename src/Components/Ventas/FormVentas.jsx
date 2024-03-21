@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { grabarVenta, editarVenta } from "../../Auth/Ventas/ventas_api";
+import { grabarVenta, editarVenta , eliminarVenta} from "../../Auth/Ventas/ventas_api";
 import BarraBusqueda from "../BarraBusqueda/BarraBusquedaProductos";
 
 function FormVentas({ venta, setValorRespuesta, objetoEliminar, props }) {
@@ -117,6 +117,23 @@ function FormVentas({ venta, setValorRespuesta, objetoEliminar, props }) {
       console.error("Error al grabar usuario:", error);
     }
   };
+
+  const eliminarVentas = async () => {
+    try {
+      if (objetoEliminar !== "") {
+        const data = await eliminarVentas(objetoEliminar.id);
+        console.log("Registro eliminado");
+        limpiarData();
+        setValorRespuesta(true);
+        console.log(data);
+      } else {
+        alert("Completa los campos");
+      }
+    } catch (error) {
+      console.error("Error al eliminar producto:", error);
+    }
+  };
+
 
   return (
     <div className=" row ms-1 border rounded p-2">

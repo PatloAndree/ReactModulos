@@ -39,12 +39,11 @@ const BarChartExample = ({ ventasFiltradas }) => {
         const fechaCortada = created_at.slice(0, 10);
       return (
         <div style={{ backgroundColor: '#EEEDEB', padding: '10px' }}>
-          <p style={{fontSize:12}}>{`Nombre: ${nombre}`}</p>
+          <p style={{fontSize:12}}>{`Cliente: ${nombre}`}</p>
           <p style={{fontSize:12}}>{`Fecha: ${fechaCortada}`}</p>
-          <p style={{fontSize:12}}>{`Valor: ${tipo_venta}`}</p>
-
-          <p style={{fontSize:12}}>{`${payload[0].value}`}</p>
-          <p style={{fontSize:12}}>{`${payload[1].value}`}</p>
+          <p style={{fontSize:12}}>{`Valor: ${tipo_venta === 1 ? "Alto" : tipo_venta === 2 ? "Medio" :"Bajo" } `}</p>
+          <p style={{fontSize:12}}>Monto vendido : S/.{`${payload[0].value}`}</p>
+          {/* <p style={{fontSize:12}}>{`${payload[1].value}`}</p> */}
         </div>
       );
     }
@@ -56,25 +55,24 @@ const BarChartExample = ({ ventasFiltradas }) => {
     consultarTipoVenta();
   }, []);
 
+  const maxGanancia = Math.max(...ventasFiltradas.map(item => item.ganancia));
+
   return (
     <div className="row ">
-
       <div className="col-12 col-md-6 col-xl-6 d-flex justify-content-center align-items-center" style={{  height: 400 }}>
         <ResponsiveContainer>
         <BarChart
           width={700}
-          height={500}
+          height={600}
           data={ventasFiltradas}
         //   data={ventasFiltradas == "" ? dataVenta : ventasFiltradas}
-
         >
           <CartesianGrid strokeDasharray="1 5" />
           <XAxis dataKey="nombre" />
-          <YAxis />
+          <YAxis domain={[0, maxGanancia]} />
           <Tooltip content={<CustomTooltip/>} />
           <Legend />
           {/* <Bar dataKey="created_at" fill="#8884d8" /> */}
-          <Bar dataKey="monto" fill="#0C2D57" />
           <Bar dataKey="ganancia" fill="#77D970" />
         </BarChart>
         </ResponsiveContainer>
@@ -82,13 +80,13 @@ const BarChartExample = ({ ventasFiltradas }) => {
 
       <div className="col-12 col-md-6 col-xl-6 d-flex justify-content-center align-items-center" style={{  height: 400 }}>
         <ResponsiveContainer>
-        <LineChart width={800} height={400} data={ventasFiltradas}>
+        <LineChart width={800} height={600} data={ventasFiltradas}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="nombre" />
-          <YAxis />
+          <YAxis domain={[0, maxGanancia]} />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="monto" stroke="#8884d8" />
+          {/* <Line type="monotone" dataKey="monto" stroke="#8884d8" /> */}
           <Line type="monotone" dataKey="ganancia" stroke="#82ca9d" />
         </LineChart>
 

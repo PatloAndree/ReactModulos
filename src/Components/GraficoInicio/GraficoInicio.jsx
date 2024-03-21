@@ -1,4 +1,4 @@
-import React  from "react";
+import React, { useEffect, useState }  from "react";
 import {
   ComposedChart,
   Line,
@@ -11,6 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { listarVentas } from "../../Auth/Ventas/ventas_api";
 
 const data = [
   {
@@ -51,15 +52,34 @@ const data = [
   },
 ];
 
+
 const GraficoInicio = () => {
+  
+  
+  
+  const[dataVenta, setDatavVenta] = useState([])
+  const consultarTipoVenta = async () => {
+  
+    const response = await listarVentas();
+    setDatavVenta(response.data);
+    console.log(response.data)
+  }
+  
+  
+  
+  useEffect(() => {
+    consultarTipoVenta();
+  }, []);
+
+
   return (
     <div style={{ width: '100%', height: 500 }}>
       <ResponsiveContainer>
         <ComposedChart
-          layout="vertical"
+          layout="horizontal"
           width={500}
           height={500}
-          data={data}
+          data={dataVenta}
           margin={{
             top:20,
             right: 20,
@@ -67,16 +87,13 @@ const GraficoInicio = () => {
             left: 20,
           }}
         >
-          <CartesianGrid stroke="#f5f5f5" />
-          <XAxis type="number" />
-          <YAxis dataKey="name" type="category" scale="band" />
+      <CartesianGrid stroke="#f5f5f5" />
+          <XAxis dataKey="nombre" type="category" />
+          <YAxis domain={[0, 100]} />
           <Tooltip />
           <Legend />
-          <Area dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-          <Bar dataKey="pv" barSize={20} fill="#413ea0" />
-          <Line dataKey="uv" stroke="#ff7300" />
-        </ComposedChart>
-
+          <Area dataKey="ganancia" fill="#8884d8" stroke="#8884d8" />
+          </ComposedChart>
       </ResponsiveContainer>
     </div>
   );

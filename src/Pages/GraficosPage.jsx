@@ -19,10 +19,15 @@ const GraficosPage = () => {
     <div className="row w-100 cuerpo_general">
       <p style={{ fontWeight: "bolder" }} className="mt-2">Gráficos generales</p>
 
+      <div className="mb-5">
       <SelectOptions setVentasFiltradas={setVentasFiltradas} />
 
+      </div>
+
       {loading !== false && ventasFiltradas != null ? (
+
         <BarChartExample ventasFiltradas={ventasFiltradas} />
+        
       ) : (
         <Loader
           type="spinner-default"

@@ -9,6 +9,7 @@ import Paper from "@mui/material/Paper";
 import TablePagination from "@mui/material/TablePagination";
 import { TableSortLabel } from "@mui/material";
 import { listarVentas } from "../../Auth/Ventas/ventas_api";
+
 import Loader from "react-js-loader";
 
 

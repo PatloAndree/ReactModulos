@@ -92,14 +92,14 @@ function Login({ onLogin }  ) {
                       </div>
 
                       <a className="small text-muted" href="#!">
-                        ¿Olvide mi contraseña?
+                        ESPAÑOL - ES
                       </a>
-                      <p className="mb-5 pb-lg-2" style={{ color: " #393f81" }}>
+                      {/* <p className="mb-5 pb-lg-2" style={{ color: " #393f81" }}>
                        ¿Aún no tienes una cuenta?{" "}
                         <a href="#!" style={{ color: "#393f81" }}>
                           Registrate aquí
                         </a>
-                      </p>
+                      </p> */}
                     
                     </form>
                   </div>

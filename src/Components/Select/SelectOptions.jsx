@@ -32,9 +32,9 @@ const SelectOptions = ({ setVentasFiltradas }) => {
   };
 
   return (
-    <div className="row mb-5 align-items-center border rounded m-2 justify-content-between pb-3">
+    <div className="row align-items-center justify-content-between">
       
-      <div className="col-12 col-md-6 col-xl-3 mt-3 ">
+      <div className="col-12 col-md-6 col-xl-3  ">
         <span>Tipo de venta</span>
         <select
           className="form-select pickers"
@@ -49,7 +49,7 @@ const SelectOptions = ({ setVentasFiltradas }) => {
           <option value="3">Bajo</option>
         </select>
       </div>
-      <div className="col-12 col-md-6 col-xl-3 mt-3 d-flex flex-column">
+      <div className="col-12 col-md-6 col-xl-3  d-flex flex-column">
         <span>Fecha inicio  (m-d-y)</span>
         <DatePicker
           selected={startDate}
@@ -58,9 +58,8 @@ const SelectOptions = ({ setVentasFiltradas }) => {
           className="form-control  pickers"
         />
       </div>
-      <div className="col-12 col-md-6 col-xl-3 mt-3 d-flex flex-column">
+      <div className="col-12 col-md-6 col-xl-3 d-flex flex-column">
         <span>Fecha fin (m-d-y) </span>
-
         <DatePicker
           selected={endDate}
           onChange={(date) => setEndDate(date)}
@@ -68,8 +67,8 @@ const SelectOptions = ({ setVentasFiltradas }) => {
           className="form-control pickers w-100"
         />
       </div>
-      <div className="col-12 col-md-6 col-xl-3 mt-4 text-end d-flex justify-content-center">
-        <button className="btn btn-primary d-flex justify-contet-center align-items-center" onClick={consultarTipoVenta}>
+      <div className="col-12 col-md-6 col-xl-3 text-end d-flex flex-column justify-content-center">
+        <button className="btn btn-primary btn-sm mt-4" onClick={consultarTipoVenta}>
           <i className="bx bx-search me-2"></i>
           Consultar
         </button>

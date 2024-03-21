@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { API } from './Axios/axios_api';
 
 
 const editarUsuario = async (usuario) => {
@@ -10,7 +11,7 @@ const editarUsuario = async (usuario) => {
       },
       // url: `http://192.168.18.30/Backend/controllers/usuarioController.php?id=${idUsuario}}`,
       // url: `http://localhost/newVersion/public/editarUsuario`,
-      url: `http://127.0.0.1:8000/api/usuarios/editarUsuario`,
+      url: `${API}usuarios/editarUsuario`,
 
       data: usuario,
     })

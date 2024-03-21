@@ -1,8 +1,7 @@
 import axios from 'axios';
-
+import { API } from './Axios/axios_api';
 
 const grabarUsuario = async (usuario) => {
-
       await axios({
         method: "post",
         headers: {
@@ -10,7 +9,7 @@ const grabarUsuario = async (usuario) => {
         },
         // url: "http://192.168.18.30/Backend/controllers/usuarioController.php",
         // url: "http://localhost/newVersion/public/agregarUsuario",
-        url: "http://127.0.0.1:8000/api/usuarios/agregarUsuario",
+        url:`${API}usuarios/agregarUsuario`,
 
         data: usuario,
       })

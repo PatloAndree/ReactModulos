@@ -63,5 +63,24 @@ const editarVenta = async (venta) => {
     });
 };
 
+const eliminarVenta = async (id) => {
 
-export { listarVentas , listarVentasTipo, grabarVenta, editarVenta };
+  await axios({
+    method: "delete",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    url: `${API}ventas/eliminarVenta/${id}`,
+    // data: producto,
+  })
+    .then(async function (d) {
+      console.log("Registro eliminado");
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+};
+
+
+export { listarVentas , listarVentasTipo, grabarVenta, editarVenta , eliminarVenta };
